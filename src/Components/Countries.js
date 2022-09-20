@@ -4,8 +4,14 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import styled from "styled-components";
 
 const url = "https://restcountries.com/v3.1/all";
+
+export const StyledInputLabel = styled.div`
+  font-size: 18px;
+  padding-bottom: 5px;
+`;
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -42,22 +48,25 @@ const Countries = () => {
                       variant="h5"
                       component="div"
                       className="cardTitle"
+                      sx={{ fontSize: "24px", fontWeight: 700 }}
                     >
                       {trimmed}
                     </Typography>
                     <Typography variant="body2" component={"span"}>
-                      <h4>
+                      <StyledInputLabel>
                         <span className="cardLabel">Population: </span>
                         {country.population}
-                      </h4>
-                      <h4>
+                      </StyledInputLabel>
+
+                      <StyledInputLabel>
                         <span className="cardLabel">Region: </span>
                         {country.region}
-                      </h4>
-                      <h4>
+                      </StyledInputLabel>
+
+                      <StyledInputLabel>
                         <span className="cardLabel">Capital: </span>
                         {country.capital}
-                      </h4>
+                      </StyledInputLabel>
                     </Typography>
                   </CardContent>
                 </CardActionArea>

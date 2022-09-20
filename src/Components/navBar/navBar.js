@@ -28,6 +28,8 @@ export default function navBar() {
               flexGrow: 1,
               display: { xs: "none", sm: "block" },
               color: "black",
+              fontWeight: 700,
+              fontSize: "24px",
             }}
           >
             Where in the world?
