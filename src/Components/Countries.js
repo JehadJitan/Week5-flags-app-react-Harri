@@ -28,7 +28,7 @@ const Countries = () => {
 
   return (
     <>
-      <div className="test" id="style-1">
+      <div className="cardContainer" id="style-1">
         <section className="grid">
           {countries.map((country) => {
             let trimmed = country.name.common.substring(0, 20);
