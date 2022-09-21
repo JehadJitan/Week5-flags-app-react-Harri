@@ -36,7 +36,10 @@ export default function navBar() {
           </Typography>
           <Stack direction="row" style={{ alignItems: "center" }}>
             <DarkModeOutlinedIcon sx={{ color: "black" }} />
-            <Button variant="text" sx={{ color: "black" }}>
+            <Button
+              variant="text"
+              sx={{ color: "black", textTransform: "none" }}
+            >
               Dark Mode
             </Button>
           </Stack>
