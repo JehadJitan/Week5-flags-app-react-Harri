@@ -1,26 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap");
 
-.card2{
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 10px 30px 0px;
-}
-
-*{
-  margin:0;
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-img{
+img {
   max-width: 100%;
 }
-body{
-  font-family: 'Nunito Sans', sans-serif;
+body {
+  font-family: "Nunito Sans", sans-serif;
   background-color: #fafafa;
 }
+/*
+Selected Countries Page
+*/
+.detailedCountryContainer {
+  width: 95%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 3rem 0 3rem;
+}
 
-.cardContainer{
+.flagDiv {
+  width: 50%;
+  height: 100%;
+}
+
+.flagDiv img {
+  width: 100%;
+  height: 100%;
+}
+
+.countryDetails {
+  width: 50%;
+  height: 100%;
+  padding: 5rem 0 0 10rem;
+  font-size: 18px;
+}
+
+.countryName {
+  padding: 0 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.details {
+  display: flex;
+  justify-content: start;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  margin-bottom: 0.5rem;
+}
+
+.firstColumn ul > li,
+.secondColumn ul > li {
+  padding-bottom: 0.5rem;
+}
+.secondColumn {
+  padding: 0rem 7.5rem;
+}
+/*
+All Countries Page
+*/
+.cardContainer {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
+}
+
+.inputLabel {
+  font-weight: 700;
+}
+
+.borderCountries {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 7.5%;
+}
+
+.borderCountriesButton {
+  display: flex;
+  flex-direction: row;
+}
+
+.borderBtn {
+  margin-left: 5% !important;
+  background-color: white !important;
+  color: black !important;
+  width: auto;
+  height: 30px !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 10px 30px 0px;
+}
+
+.router-link {
+  text-decoration: none;
+}
+
+.backBtn {
+  background-color: #fff !important;
+  color: #000 !important;
+  margin: 3rem !important;
+  width: auto;
+}
+
+.arrowIcon {
+  margin-right: 0.5rem;
 }
 
 #style-1::-webkit-scrollbar-track {
@@ -46,36 +138,36 @@ body{
   font-size: 24px;
 }
 
-.grid{
+.grid {
   display: inline-grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 5rem;
   width: 100%;
   justify-items: center;
 }
 
-.cardLabel{
+.cardLabel {
   font-weight: 600;
   font-size: 18px;
 }
 
-.cardTitle{
+.cardTitle {
   font-weight: 800;
   padding-bottom: 1rem;
 }
 
-.header{
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 3rem;
 }
-.box{
-	box-shadow: 0 10px 6px -10px gray;
+.box {
+  box-shadow: 0 10px 6px -10px gray;
 }
 
-.favouritesContainer{
+.favouritesContainer {
   background-color: #fff;
   width: 30%;
   height: 100%;
@@ -84,22 +176,26 @@ body{
   padding: 0.5rem;
 }
 
+.starContainer{
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .favouritesContainer{
+  
+  .favouritesContainer {
     display: none;
   }
 
-  .header{
+  .header {
     display: flex;
     flex-direction: column;
     margin: 2rem 0 0rem 2rem;
     align-items: start;
   }
-  #headerSearch{
-      width: 90%;
-      
+  #headerSearch {
+    width: 90%;
   }
-  #headerDropdown{
+  #headerDropdown {
     margin: 0;
     margin-top: 2rem;
   }
@@ -110,5 +206,94 @@ body{
   }
   #style-1::-webkit-scrollbar {
     display: none;
+  }
+  .detailedCountryContainer {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2rem 2rem 2rem;
+  }
+
+  .backBtn {
+    margin: 2rem 2rem 4rem 2rem !important;
+  }
+
+  .countryDetails {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .flagDiv {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 10%;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .secondColumn {
+    margin-top: 7.5%;
+    padding: 0;
+  }
+
+  .borderCountries {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 7.5%;
+  }
+  .borderCountriesButton {
+    margin: 0rem !important;
+   padding-top: 0.5rem !important;
+  }
+  .borderBtn {
+    margin: 0 !important;
+    height: 25px !important;
+
+  }
+  .borderBtn:not(:first-child){
+      margin-left: 1rem !important;
+  }
+
+  .firstColumn ul > li,
+  .secondColumn ul > li {
+    padding-bottom: 0.2rem;
+  }
+
+  /* .cardContainer{
+    width: 95%;
+    display: flex;
+    justify-content: start;
+    margin: auto;
+    background-color: red;
+  } */
+
+  .cardContainer {
+    width: 95% !important;
+    overflow-y: scroll;
+  }
+
+  .grid {
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .box {
+    width: 100% !important;
+  }
+
+  .starContainer{
+    display: block;
+    float: right;
+    margin: 0 1rem 1rem 0;
+  }
+
+  .star{
+    color: #e5e5e5;
   }
 }

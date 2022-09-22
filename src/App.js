@@ -1,14 +1,26 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./Components/navBar/navBar";
-import Header from "./Components/Header/headerContainer";
-import MainContainer from "./Components/MainContainer";
+import AllCountries from "./Components/pages/AllCountries";
+import Header from "./Components/Header/Header";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SelectedCountry from "./Components/pages/SelectedCountry";
 function App() {
   return (
     <>
-      <NavBar />
-      <Header />
-      <MainContainer />
+      <Router>
+        <Header />
+        <Routes>
+          <Route
+            path="/Week5-flags-app-react-Harri"
+            element={<AllCountries />}
+          />
+          <Route
+            path="/Week5-flags-app-react-Harri/SelectedCountry"
+            element={<SelectedCountry />}
+          />
+        </Routes>
+      </Router>
     </>
   );
 }

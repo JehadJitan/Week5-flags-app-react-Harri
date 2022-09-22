@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import SearchBar from "./searchBar";
-import DropDown from "./dropDown";
-const header = () => {
+import SearchBar from "./SearchBar";
+import DropDown from "./DropDown";
+const Header = () => {
   /**
         @todo: 
             const [region, setRegion] = useState("");
@@ -19,4 +19,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

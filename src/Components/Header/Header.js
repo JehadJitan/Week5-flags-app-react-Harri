@@ -7,18 +7,13 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
-export default function navBar() {
+export default function NavBar() {
   return (
     <Box
       sx={({ flexGrow: 1 }, { overflow: "hidden", width: "100%" })}
       className="box"
     >
-      <AppBar
-        position="static"
-        style={{
-          backgroundColor: "#ffffff",
-        }}
-      >
+      <AppBar position="static" sx={{ backgroundColor: "white" }}>
         <Toolbar sx={{ ml: 3, mr: 3 }}>
           <Typography
             variant="h6"

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Countries from "../Components/Countries";
-import FavouriteList from "../Components/favouritesList";
+import FavouriteList from "./FavouritesList";
 
 export const StyledContainer = styled.div`
   display: flex;
