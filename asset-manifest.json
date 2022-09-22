@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Week5-flags-app-react-Harri/static/css/main.6544e8db.css",
+    "main.js": "/Week5-flags-app-react-Harri/static/js/main.9888a0ee.js",
+    "index.html": "/Week5-flags-app-react-Harri/index.html",
+    "main.6544e8db.css.map": "/Week5-flags-app-react-Harri/static/css/main.6544e8db.css.map",
+    "main.9888a0ee.js.map": "/Week5-flags-app-react-Harri/static/js/main.9888a0ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6544e8db.css",
+    "static/js/main.9888a0ee.js"
+  ]
+}
