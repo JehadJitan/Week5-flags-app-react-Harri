@@ -1,23 +1,31 @@
 import React from "react";
-import styled from "styled-components";
-import Countries from "../Components/Countries";
 import FavouriteList from "./FavouritesList";
-
-export const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 3rem;
-  width: 95%;
-  height: 650px;
-`;
+import Countries3 from "./Countries3";
+import CountriesGrid from "./CountriesGrid";
+import { Grid } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const MainContainer = () => {
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
   return (
-    <StyledContainer>
-      <FavouriteList />
-      <Countries />
-    </StyledContainer>
+    <Grid container columnSpacing={4} px={6}>
+      {isLgUp && (
+        <Grid item xs={0} lg={3} sx={{ height: "calc(100vh - 300px)" }}>
+          <FavouriteList />
+        </Grid>
+      )}
+      <Grid
+        item
+        xs={12}
+        lg={9}
+        sx={{ height: "calc(100vh - 300px)", overflowY: "auto" }}
+      >
+        <CountriesGrid />
+      </Grid>
+    </Grid>
   );
 };
 
