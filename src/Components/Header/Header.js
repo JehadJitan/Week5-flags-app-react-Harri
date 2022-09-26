@@ -13,15 +13,29 @@ export default function NavBar() {
       sx={({ flexGrow: 1 }, { overflow: "hidden", width: "100%" })}
       className="box"
     >
-      <AppBar position="static" sx={{ backgroundColor: "white" }}>
-        <Toolbar sx={{ ml: 3, mr: 3 }}>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "white" }}
+        className="appBar"
+      >
+        <Toolbar
+          className="toolBar"
+          sx={{
+            ml: 4,
+            mr: 4,
+            display: { xs: "flex" },
+            flexDirection: "row",
+            backgroundColor: "white",
+            justifyContent: "space-between",
+            padding: "0px",
+          }}
+        >
           <Typography
+            className="mainTitle"
             variant="h6"
             noWrap
             component="div"
             sx={{
-              flexGrow: 1,
-              display: { xs: "none", sm: "block" },
               color: "black",
               fontWeight: 700,
               fontSize: "24px",
@@ -30,8 +44,12 @@ export default function NavBar() {
             Where in the world?
           </Typography>
           <Stack direction="row" style={{ alignItems: "center" }}>
-            <DarkModeOutlinedIcon sx={{ color: "black" }} />
+            <DarkModeOutlinedIcon
+              className="darkModeIcon"
+              sx={{ color: "black" }}
+            />
             <Button
+              className="darkBtn"
               variant="text"
               sx={{ color: "black", textTransform: "none" }}
             >
