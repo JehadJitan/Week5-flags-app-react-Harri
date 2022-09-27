@@ -10,6 +10,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import "../AllCountries.css";
 
 export const StyledInputLabel = styled.div`
   font-size: 18px;
@@ -29,7 +30,7 @@ const Countries = () => {
       population: "83,240,525",
       region: "Europe",
       capital: "Berlin",
-      flag: require("../flags/GF.png"),
+      flag: require("../../../flags/GF.png"),
       native: "Deutschland",
       subRegion: "Western Europe",
       tld: ".de",
@@ -42,7 +43,7 @@ const Countries = () => {
       population: "323,947,000",
       region: "Americas",
       capital: "Washington. D.C.",
-      flag: require("../flags/GA.jpg"),
+      flag: require("../../../flags/GA.jpg"),
       native: "USA",
       subRegion: "Americas",
       tld: ".us",
@@ -55,7 +56,7 @@ const Countries = () => {
       population: "334,300",
       region: "Europe",
       capital: "Reykjavik",
-      flag: require("../flags/GF.png"),
+      flag: require("../../../flags/GI.png"),
       native: "Iceland",
       subRegion: "Northern Europe",
       tld: ".is",
@@ -68,7 +69,7 @@ const Countries = () => {
       population: "40,400,000",
       region: "Africa",
       capital: "Algiers",
-      flag: require("../flags/GB.png"),
+      flag: require("../../../flags/GAL.png"),
       native: "الجزائر",
       subRegion: "Northern Africa",
       tld: ".dz",
@@ -81,7 +82,7 @@ const Countries = () => {
       population: "2,886,026",
       region: "Europe",
       capital: "Tirana",
-      flag: require("../flags/GALB.png"),
+      flag: require("../../../flags/GALB.png"),
       native: "Shqipëria",
       subRegion: "Southeast Europe",
       tld: ".al",
@@ -94,7 +95,7 @@ const Countries = () => {
       population: "212,559,409",
       region: "Americas",
       capital: "Brasilia",
-      flag: require("../flags/GB.png"),
+      flag: require("../../../flags/GB.png"),
       native: "Brasil",
       subRegion: "South America",
       tld: ".br",
@@ -109,7 +110,10 @@ const Countries = () => {
   return (
     <Grid container spacing={10}>
       {countriesStatic.map((country) => {
-        const isFaivourt = Math.random() > 0.5;
+        /**
+          @todo:
+            const isFavourite = Math.random() > 0.5;
+        **/
         return (
           <Grid item xs={12} md={6} lg={4} key={country.name}>
             <Link
@@ -130,15 +134,9 @@ const Countries = () => {
                 border: country.border,
               }}
             >
-              <Card
-                // sx={({ maxWidth: 350 }, { width: 300 })}
-                key={country.name}
-                onClick={routeChange}
-                // className="each"
-              >
+              <Card key={country.name} onClick={routeChange}>
                 <CardMedia
                   component="img"
-                  // height="200"
                   image={country.flag}
                   alt={country.name}
                   sx={{ objectFit: "fill", aspectRatio: "16/9" }}
@@ -177,7 +175,10 @@ const Countries = () => {
                     <IconButton>
                       <StarIcon
                         fontSize="large"
-                        color={isFaivourt ? "warning" : "disabled"}
+                        /**
+                           @todo:
+                            color={isFavourite ? "warning" : "disabled"}
+                        **/
                       />
                     </IconButton>
                   </CardActions>

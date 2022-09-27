@@ -1,6 +1,5 @@
 import React from "react";
 import FavouriteList from "./FavouritesList";
-import Countries3 from "./Countries3";
 import CountriesGrid from "./CountriesGrid";
 import { Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -18,6 +17,7 @@ const MainContainer = () => {
         </Grid>
       )}
       <Grid
+        id="style-1"
         item
         xs={12}
         lg={9}

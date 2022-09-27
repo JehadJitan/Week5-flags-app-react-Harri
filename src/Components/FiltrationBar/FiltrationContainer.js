@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
+import "./SearchBar.css";
+
 const Header = () => {
   /**
         @todo: 

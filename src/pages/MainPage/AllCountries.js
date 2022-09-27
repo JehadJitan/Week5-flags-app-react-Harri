@@ -1,6 +1,6 @@
 import React from "react";
-import FiltrationBar from "../FiltrationBar/FiltrationContainer";
-import MainContainer from "../MainContainer";
+import FiltrationBar from "../../Components/FiltrationBar/FiltrationContainer";
+import MainContainer from "./Components/MainContainer";
 const AllCountries = () => {
   return (
     <>

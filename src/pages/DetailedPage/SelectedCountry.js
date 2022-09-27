@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
+import "./SelectedCountry.css";
 const SelectedCountry = () => {
   let navigate = useNavigate();
   const routeChange = () => {
