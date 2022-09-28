@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/Week5-flags-app-react-Harri/static/css/main.6544e8db.css",
-    "main.js": "/Week5-flags-app-react-Harri/static/js/main.9888a0ee.js",
+    "main.css": "/Week5-flags-app-react-Harri/static/css/main.e217d075.css",
+    "main.js": "/Week5-flags-app-react-Harri/static/js/main.0074ebf2.js",
+    "static/media/GB.png": "/Week5-flags-app-react-Harri/static/media/GB.91242757f95e67f02bed.png",
+    "static/media/GA.jpg": "/Week5-flags-app-react-Harri/static/media/GA.24e5f8d422ca766e1590.jpg",
+    "static/media/GALB.png": "/Week5-flags-app-react-Harri/static/media/GALB.bb5d1e3cb1e20b805f12.png",
+    "static/media/GAL.png": "/Week5-flags-app-react-Harri/static/media/GAL.1a2ea601ce9230cf0772.png",
     "index.html": "/Week5-flags-app-react-Harri/index.html",
-    "main.6544e8db.css.map": "/Week5-flags-app-react-Harri/static/css/main.6544e8db.css.map",
-    "main.9888a0ee.js.map": "/Week5-flags-app-react-Harri/static/js/main.9888a0ee.js.map"
+    "main.e217d075.css.map": "/Week5-flags-app-react-Harri/static/css/main.e217d075.css.map",
+    "main.0074ebf2.js.map": "/Week5-flags-app-react-Harri/static/js/main.0074ebf2.js.map"
   },
   "entrypoints": [
-    "static/css/main.6544e8db.css",
-    "static/js/main.9888a0ee.js"
+    "static/css/main.e217d075.css",
+    "static/js/main.0074ebf2.js"
   ]
 }
