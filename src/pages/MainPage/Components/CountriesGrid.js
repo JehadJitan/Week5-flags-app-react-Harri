@@ -9,13 +9,8 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import "../AllCountries.css";
-
-export const StyledInputLabel = styled.div`
-  font-size: 18px;
-  padding-bottom: 5px;
-`;
+import InputLabelValue from "./InputLabelValue";
 
 const Countries = () => {
   let navigate = useNavigate();
@@ -139,7 +134,10 @@ const Countries = () => {
                   component="img"
                   image={country.flag}
                   alt={country.name}
-                  sx={{ objectFit: "fill", aspectRatio: "16/9" }}
+                  sx={{
+                    objectFit: "fill",
+                    aspectRatio: "16/9",
+                  }}
                 />
                 <CardContent sx={{ p: 3, pb: 0 }}>
                   <Typography
@@ -152,20 +150,20 @@ const Countries = () => {
                     {country.name}
                   </Typography>
                   <Typography variant="body2" component={"span"}>
-                    <StyledInputLabel className="inputValue">
+                    <InputLabelValue>
                       <span className="cardLabel">Population: </span>
                       {country.population}
-                    </StyledInputLabel>
+                    </InputLabelValue>
 
-                    <StyledInputLabel className="inputValue">
+                    <InputLabelValue>
                       <span className="cardLabel">Region: </span>
                       {country.region}
-                    </StyledInputLabel>
+                    </InputLabelValue>
 
-                    <StyledInputLabel className="inputValue">
+                    <InputLabelValue>
                       <span className="cardLabel">Capital: </span>
                       {country.capital}
-                    </StyledInputLabel>
+                    </InputLabelValue>
                   </Typography>
                 </CardContent>
                 {isLgDown && (

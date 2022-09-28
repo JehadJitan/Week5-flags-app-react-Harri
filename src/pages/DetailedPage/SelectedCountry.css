@@ -83,6 +83,11 @@
   .arrowIcon {
     margin-right: 0.5rem;
   }
+
+  .inputValue{
+    font-size: 18px;
+    padding-bottom: 5px;
+  }
   
   @media (max-width: 414px) {
     
@@ -157,4 +162,60 @@
       font-size: 18px !important;
     }
   }
-  
+
+  @media (min-width:540px) {
+
+    .detailedCountryContainer {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+    }
+
+    .flagDiv {
+      width: 85%;
+      height: 50%;
+      margin-bottom: 5%;
+    }
+
+    .countryDetails {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width:910px) {
+
+    .flagDiv {
+      width: 90%;
+    }
+  }
+
+  @media (min-width:1100px) {
+
+    .detailedCountryContainer {
+      width: 95%;
+      height: 500px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 0 3rem 0 3rem;
+    }
+    
+    .flagDiv {
+      width: 50%;
+      height: 100%;
+    }
+
+    .countryDetails {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5% 0 0 7.5%;
+      font-size: 18px;
+    }
+  }
