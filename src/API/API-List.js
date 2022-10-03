@@ -5,8 +5,9 @@ let allCountriesArray = [];
 /*
 Fetching APIs
 */
+let mainURL = "https://restcountries.com/v3.1/";
 export const getAllCountries = async () => {
-  let URL = "https://restcountries.com/v3.1/all";
+  let URL = `${mainURL}all`;
   const response = await fetch(URL);
   const countries = await response.json();
   allCountriesArray = countries;
@@ -22,6 +23,13 @@ export const getCountriesByRegion = async (region) => {
     }
   });
   return filtedRegionCountries;
+};
+
+export const getCountryDetails = async (name) => {
+  let URL = `${mainURL}/name/${name}`;
+  const response = await fetch(URL);
+  const country = await response.json();
+  return country;
 };
 
 export const getSearchedCountry = (name) => {
@@ -69,7 +77,6 @@ export const getDetailedCountry = (name) => {
     .then((response) => response.json())
     .then(function (response) {
       const countriesData2 = response;
-      // renderDetailedPage(countriesData2);
     })
     .catch((err) => console.log("Error:", err));
 };

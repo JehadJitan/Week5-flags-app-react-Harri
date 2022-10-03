@@ -10,6 +10,7 @@
   .flagDiv {
     width: 50%;
     height: 100%;
+    object-fit: "cover";
   }
   
   .flagDiv img {

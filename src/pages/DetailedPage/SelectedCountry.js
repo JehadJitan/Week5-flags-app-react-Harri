@@ -1,37 +1,44 @@
-import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Typography } from "@mui/material";
 import "./SelectedCountry.css";
+import { getCountryDetails } from "../../API/API-List";
+import { Link } from "react-router-dom";
 
 const SelectedCountry = () => {
-  let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `/Week5-flags-app-react-Harri`;
-    navigate(path);
-  };
-
   const location = useLocation();
+  console.log(location.state.name);
+
+  const [country2, setCountry2] = useState([]);
+  useEffect(() => {
+    getCountryDetails(location.state.name).then((response) =>
+      setCountry2(response)
+    );
+  }, []);
+  console.log(country2);
   return (
     <>
-      <Button
-        sx={{ color: "text.primary" }}
-        color="grey"
-        variant="contained"
-        className="backBtn"
-        onClick={routeChange}
-      >
-        <ArrowBackIcon fontSize="small" className="arrowIcon" />
-        Back
-      </Button>
+      <Link className="routeL" to="/Week5-flags-app-react-Harri" key="123">
+        <Button
+          sx={{ color: "text.primary" }}
+          color="grey"
+          variant="contained"
+          className="backBtn"
+          // onClick={routeChange}
+        >
+          <ArrowBackIcon fontSize="small" className="arrowIcon" />
+          Back
+        </Button>
+      </Link>
       <article className="detailedCountryContainer">
         <div className="flagDiv">
-          <img src={location.state.flag} />
+          {/* <img src={country2[0].flags.svg} /> */}
         </div>
         <div className="countryDetails">
           <Typography variant="h5" color="text.primary" className="countryName">
-            {location.state.name}
+            "toBeAdded"
           </Typography>
           <div className="details">
             <div className="firstColumn">
@@ -45,7 +52,7 @@ const SelectedCountry = () => {
                     Native Name:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.native}
+                    "toBeAdded"
                   </Typography>
                 </li>
                 <li>
@@ -57,7 +64,7 @@ const SelectedCountry = () => {
                     Population:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.population}
+                    "toBeAdded"
                   </Typography>
                 </li>
                 <li>
@@ -69,7 +76,7 @@ const SelectedCountry = () => {
                     Region:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.region}
+                    "toBeAdded"
                   </Typography>
                 </li>
                 <li>
@@ -81,7 +88,7 @@ const SelectedCountry = () => {
                     Sub Region:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.subRegion}
+                    "toBeAdded"
                   </Typography>
                 </li>
                 <li>
@@ -93,7 +100,7 @@ const SelectedCountry = () => {
                     Capital:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.capital}
+                    "toBeAdded"
                   </Typography>
                 </li>
               </ul>
@@ -109,7 +116,7 @@ const SelectedCountry = () => {
                     Top Level Domain:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.tld}
+                    "toBeAdded"
                   </Typography>
                 </li>
                 <li>
@@ -121,7 +128,7 @@ const SelectedCountry = () => {
                     Currencies:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.currency}
+                    "toBeAdded"
                   </Typography>
                 </li>
                 <li>
@@ -133,7 +140,7 @@ const SelectedCountry = () => {
                     Languages:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    {location.state.lang}
+                    "toBeAdded"
                   </Typography>
                 </li>
               </ul>
@@ -143,7 +150,7 @@ const SelectedCountry = () => {
             <div className="borderCountriesLabel">
               <Typography color="text.primary">Border Countries:</Typography>
             </div>
-            <div className="borderCountriesButton">
+            {/* <div className="borderCountriesButton">
               {location.state.border.map(function (borderCountry, i) {
                 return (
                   <Button
@@ -159,7 +166,7 @@ const SelectedCountry = () => {
                   </Button>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </article>

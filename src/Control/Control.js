@@ -1,6 +1,11 @@
 /*
   Drag & Drop Functions
 */
+
+let tempCountry = [];
+let favouritesArray = [];
+let allCountriesArray = [];
+
 function dragstartHandler(ev) {
   const dataList = ev.dataTransfer.items;
   dataList.add(ev.target.id, "text/plain");

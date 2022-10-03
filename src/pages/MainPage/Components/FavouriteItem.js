@@ -4,6 +4,9 @@ import Typography from "@mui/material/Typography";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 const FavouriteItem = () => {
+  const handleClick = () => {
+    console.log("should remove country from fav list");
+  };
   return (
     <div className="favouriteItem">
       <div className="favouriteItem-LeftContainer">
@@ -13,7 +16,7 @@ const FavouriteItem = () => {
         </Typography>
       </div>
       <div className="favouriteItem-RightContainer">
-        <CancelIcon color="disabled" />
+        <CancelIcon color="disabled" onClick={handleClick} />
       </div>
     </div>
   );

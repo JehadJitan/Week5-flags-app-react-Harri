@@ -7,106 +7,23 @@ import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { getAllCountries, getCountriesByRegion } from "../../../API/API-List";
+import { RegionContext } from "../../../Context/RegionContext";
 import "../AllCountries.css";
 import InputLabelValue from "./InputLabelValue";
 
 const Countries = () => {
-  let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `/Week5-flags-app-react-Harri/SelectedCountry`;
-    navigate(path);
-  };
-
-  const countriesStatic = [
-    {
-      name: "Germany",
-      population: "83,240,525",
-      region: "Europe",
-      capital: "Berlin",
-      flag: require("../../../flags/GF.png"),
-      native: "Deutschland",
-      subRegion: "Western Europe",
-      tld: ".de",
-      currency: "Euro",
-      lang: "German",
-      border: ["ARG", "BOL", "COL"],
-    },
-    {
-      name: "United States of America",
-      population: "323,947,000",
-      region: "Americas",
-      capital: "Washington. D.C.",
-      flag: require("../../../flags/GA.jpg"),
-      native: "USA",
-      subRegion: "Americas",
-      tld: ".us",
-      currency: "US Dollars",
-      lang: "English",
-      border: ["ARG", "BOL", "COL"],
-    },
-    {
-      name: "Iceland",
-      population: "334,300",
-      region: "Europe",
-      capital: "Reykjavik",
-      flag: require("../../../flags/GI.png"),
-      native: "Iceland",
-      subRegion: "Northern Europe",
-      tld: ".is",
-      currency: "Krona Kr",
-      lang: "Icelandic",
-      border: ["ARG", "BOL", "COL"],
-    },
-    {
-      name: "Algeria",
-      population: "40,400,000",
-      region: "Africa",
-      capital: "Algiers",
-      flag: require("../../../flags/GAL.png"),
-      native: "الجزائر",
-      subRegion: "Northern Africa",
-      tld: ".dz",
-      currency: "Algerian dinar",
-      lang: "Arabic",
-      border: ["ARG", "BOL", "COL"],
-    },
-    {
-      name: "Albania",
-      population: "2,886,026",
-      region: "Europe",
-      capital: "Tirana",
-      flag: require("../../../flags/GALB.png"),
-      native: "Shqipëria",
-      subRegion: "Southeast Europe",
-      tld: ".al",
-      currency: "Albanian Lek",
-      lang: "Albanian",
-      border: ["ARG", "BOL", "COL"],
-    },
-    {
-      name: "Brazil",
-      population: "212,559,409",
-      region: "Americas",
-      capital: "Brasilia",
-      flag: require("../../../flags/GB.png"),
-      native: "Brasil",
-      subRegion: "South America",
-      tld: ".br",
-      currency: "Brazilian Real",
-      lang: "Portuguese",
-      border: ["ARG", "BOL", "COL"],
-    },
-  ];
   const theme = useTheme();
   const isLgDown = useMediaQuery(theme.breakpoints.down("lg"));
 
   const [countries, setCountries] = useState([]);
 
+  const regionSpecified = useContext(RegionContext);
+
+  let filterApplied = regionSpecified;
   useEffect(() => {
-    let filterApplied = "";
     if (filterApplied === "") {
       getAllCountries().then((data) => setCountries(data));
     } else {
@@ -114,7 +31,7 @@ const Countries = () => {
         .then((data) => setCountries(data))
         .then((data) => console.log(data));
     }
-  }, []);
+  }, [filterApplied]);
 
   return (
     <Grid container spacing={10}>
@@ -131,23 +48,9 @@ const Countries = () => {
               key={country.name.common}
               state={{
                 name: country.name.common,
-                population: country.population,
-                region: country.region,
-                capital: country.capital,
-                flag: country.flags.svg,
-                native: "country.native",
-                subRegion: country.subRegion,
-                tld: country.tld,
-                currency: "country.currency",
-                lang: "country.lang",
-                border: "country.border",
               }}
             >
-              <Card
-                key={country.name.common}
-                onClick={routeChange}
-                className="card"
-              >
+              <Card key={country.name.common} className="card">
                 <CardMedia
                   component="img"
                   image={country.flags.svg}
