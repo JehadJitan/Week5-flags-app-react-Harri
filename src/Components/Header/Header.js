@@ -28,7 +28,7 @@ export default function NavBar() {
         <Toolbar
           className="toolBar"
           sx={{
-            mx: 4,
+            mx: 3,
             display: { xs: "flex" },
             flexDirection: "row",
             justifyContent: "space-between",

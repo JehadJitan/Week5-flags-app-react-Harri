@@ -5,11 +5,7 @@ import FavouriteItem from "./FavouriteItem";
 const favouritesList = () => {
   return (
     <>
-      <div
-        className="favouritesContainer"
-        ondrop="dropHandler(event);"
-        ondragover="dragoverHandler(event)"
-      >
+      <div className="favouritesContainer">
         <Typography
           variant="h5"
           component="h5"
@@ -22,12 +18,11 @@ const favouritesList = () => {
         <div
           className="favouritesList"
           id="style-1"
-          /**
-            @todo:
-            ondrop="dropHandler(event);"
-            ondragover="dragoverHandler(event);"
-        **/
+          ondrop="dropHandler(event)"
+          ondragover="dragoverHandler(event)"
         >
+          <FavouriteItem />
+          <FavouriteItem />
           <FavouriteItem />
           <FavouriteItem />
         </div>
