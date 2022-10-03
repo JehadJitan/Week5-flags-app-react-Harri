@@ -2,7 +2,9 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Typography } from "@mui/material";
 import "./SelectedCountry.css";
+
 const SelectedCountry = () => {
   let navigate = useNavigate();
   const routeChange = () => {
@@ -13,7 +15,13 @@ const SelectedCountry = () => {
   const location = useLocation();
   return (
     <>
-      <Button variant="contained" className="backBtn" onClick={routeChange}>
+      <Button
+        sx={{ color: "text.primary" }}
+        color="grey"
+        variant="contained"
+        className="backBtn"
+        onClick={routeChange}
+      >
         <ArrowBackIcon fontSize="small" className="arrowIcon" />
         Back
       </Button>
@@ -22,58 +30,127 @@ const SelectedCountry = () => {
           <img src={location.state.flag} />
         </div>
         <div className="countryDetails">
-          <h2 className="countryName">{location.state.name}</h2>
+          <Typography variant="h5" color="text.primary" className="countryName">
+            {location.state.name}
+          </Typography>
           <div className="details">
             <div className="firstColumn">
               <ul>
                 <li>
-                  <span className="inputLabel">Native Name: </span>
-                  <span>{location.state.native}</span>
+                  <Typography
+                    component="span"
+                    sx={{ color: "text.primary", fontWeight: 700 }}
+                    className="inputLabel"
+                  >
+                    Native Name:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.native}
+                  </Typography>
                 </li>
                 <li>
-                  <span className="inputLabel">Population: </span>
-                  <span>{location.state.population}</span>
+                  <Typography
+                    component="span"
+                    sx={{ color: "text.primary", fontWeight: 700 }}
+                    className="inputLabel"
+                  >
+                    Population:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.population}
+                  </Typography>
                 </li>
                 <li>
-                  <span className="inputLabel">Region: </span>
-                  <span>{location.state.region}</span>
+                  <Typography
+                    component="span"
+                    sx={{ color: "text.primary", fontWeight: 700 }}
+                    className="inputLabel"
+                  >
+                    Region:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.region}
+                  </Typography>
                 </li>
                 <li>
-                  <span className="inputLabel">Sub Region: </span>
-                  <span>{location.state.subRegion}</span>
+                  <Typography
+                    component="span"
+                    sx={{ color: "text.primary", fontWeight: 700 }}
+                    className="inputLabel"
+                  >
+                    Sub Region:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.subRegion}
+                  </Typography>
                 </li>
                 <li>
-                  <span className="inputLabel">Capital: </span>
-                  <span>{location.state.capital}</span>
+                  <Typography
+                    component="span"
+                    sx={{ color: "text.primary", fontWeight: 700 }}
+                    className="inputLabel"
+                  >
+                    Capital:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.capital}
+                  </Typography>
                 </li>
               </ul>
             </div>
             <div className="secondColumn">
               <ul>
                 <li>
-                  <span className="inputLabel">Top Level Domain: </span>
-                  <span>{location.state.tld}</span>
+                  <Typography
+                    component="span"
+                    sx={{ fontWeight: 700, color: "text.primary" }}
+                    className="inputLabel"
+                  >
+                    Top Level Domain:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.tld}
+                  </Typography>
                 </li>
                 <li>
-                  <span className="inputLabel">Currencies: </span>
-                  <span>{location.state.currency}</span>
+                  <Typography
+                    component="span"
+                    sx={{ color: "text.primary", fontWeight: 700 }}
+                    className="inputLabel"
+                  >
+                    Currencies:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.currency}
+                  </Typography>
                 </li>
                 <li>
-                  <span className="inputLabel">Languages: </span>
-                  <span>{location.state.lang}</span>
+                  <Typography
+                    component="span"
+                    sx={{ color: "text.primary", fontWeight: 700 }}
+                    className="inputLabel"
+                  >
+                    Languages:{" "}
+                  </Typography>
+                  <Typography component="span" sx={{ color: "text.primary" }}>
+                    {location.state.lang}
+                  </Typography>
                 </li>
               </ul>
             </div>
           </div>
           <div className="borderCountries">
             <div className="borderCountriesLabel">
-              <h4>Border Countries:</h4>
+              <Typography color="text.primary">Border Countries:</Typography>
             </div>
             <div className="borderCountriesButton">
               {location.state.border.map(function (borderCountry, i) {
                 return (
                   <Button
-                    variant="contained"
+                    // variant;=""
+                    sx={{ color: "text.primary" }}
+                    color="grey"
+                    variant="container"
                     className="borderBtn"
                     size="small"
                     key={i}

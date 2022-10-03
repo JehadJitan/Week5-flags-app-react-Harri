@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,38 +7,42 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import "./Header.css";
+import { ToggleColorMode } from "../../Context/ThemeProvider";
+import { useTheme } from "@mui/material/styles";
 
 export default function NavBar() {
+  const { handleToggleColor } = useContext(ToggleColorMode);
+  const theme = useTheme();
+  const temp = () => {
+    const mode = theme.palette.mode === "dark" ? "light" : "dark";
+    handleToggleColor(mode);
+  };
   return (
     <Box
       sx={({ flexGrow: 1 }, { overflow: "hidden", width: "100%" })}
       className="box"
     >
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "white" }}
-        className="appBar"
-      >
+      <AppBar position="static" className="appBar">
         <Toolbar
           className="toolBar"
           sx={{
-            ml: 4,
-            mr: 4,
+            mx: 4,
             display: { xs: "flex" },
             flexDirection: "row",
-            backgroundColor: "white",
             justifyContent: "space-between",
-            padding: "0px",
+            p: 0,
           }}
         >
           <Typography
             className="mainTitle"
-            variant="h6"
-            noWrap
+            variant="h5"
             component="div"
+            gutterBottom
+            noWrap
             sx={{
-              color: "black",
+              color: "text.primary",
               fontWeight: 700,
               fontSize: "24px",
             }}
@@ -45,15 +50,19 @@ export default function NavBar() {
             Where in the world?
           </Typography>
           <Stack direction="row" style={{ alignItems: "center" }}>
-            <DarkModeOutlinedIcon
-              className="darkModeIcon"
-              sx={{ color: "black" }}
-            />
             <Button
-              className="darkBtn"
+              onClick={temp}
               variant="text"
-              sx={{ color: "black", textTransform: "none" }}
+              sx={{
+                textTransform: "none",
+                color: "text.primary",
+              }}
             >
+              {theme.palette.mode === "dark" ? (
+                <DarkModeIcon />
+              ) : (
+                <DarkModeOutlinedIcon />
+              )}
               Dark Mode
             </Button>
           </Stack>

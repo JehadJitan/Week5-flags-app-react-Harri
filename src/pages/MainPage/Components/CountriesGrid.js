@@ -7,8 +7,9 @@ import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getAllCountries, getCountriesByRegion } from "../../../API/API-List";
 import "../AllCountries.css";
 import InputLabelValue from "./InputLabelValue";
 
@@ -102,40 +103,57 @@ const Countries = () => {
   const theme = useTheme();
   const isLgDown = useMediaQuery(theme.breakpoints.down("lg"));
 
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    let filterApplied = "";
+    if (filterApplied === "") {
+      getAllCountries().then((data) => setCountries(data));
+    } else {
+      getCountriesByRegion(filterApplied)
+        .then((data) => setCountries(data))
+        .then((data) => console.log(data));
+    }
+  }, []);
+
   return (
     <Grid container spacing={10}>
-      {countriesStatic.map((country) => {
+      {countries.map((country) => {
         /**
           @todo:
             const isFavourite = Math.random() > 0.5;
         **/
         return (
-          <Grid item xs={12} md={6} lg={4} key={country.name}>
+          <Grid item xs={12} md={6} lg={4} key={country.name.common}>
             <Link
               className="routeL"
               to="/Week5-flags-app-react-Harri/SelectedCountry"
-              key={country.name}
+              key={country.name.common}
               state={{
-                name: country.name,
+                name: country.name.common,
                 population: country.population,
                 region: country.region,
                 capital: country.capital,
-                flag: country.flag,
-                native: country.native,
+                flag: country.flags.svg,
+                native: "country.native",
                 subRegion: country.subRegion,
                 tld: country.tld,
-                currency: country.currency,
-                lang: country.lang,
-                border: country.border,
+                currency: "country.currency",
+                lang: "country.lang",
+                border: "country.border",
               }}
             >
-              <Card key={country.name} onClick={routeChange}>
+              <Card
+                key={country.name.common}
+                onClick={routeChange}
+                className="card"
+              >
                 <CardMedia
                   component="img"
-                  image={country.flag}
-                  alt={country.name}
+                  image={country.flags.svg}
+                  alt={country.name.common}
                   sx={{
-                    objectFit: "fill",
+                    objectFit: "cover",
                     aspectRatio: "16/9",
                   }}
                 />
@@ -147,7 +165,7 @@ const Countries = () => {
                     className="cardTitle"
                     sx={{ fontSize: "24px", fontWeight: 700 }}
                   >
-                    {country.name}
+                    {country.name.common}
                   </Typography>
                   <Typography variant="body2" component={"span"}>
                     <InputLabelValue>

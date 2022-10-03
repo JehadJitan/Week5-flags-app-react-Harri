@@ -1,4 +1,5 @@
 import React from "react";
+import FavouriteItem from "./FavouriteItem";
 
 const favouritesList = () => {
   return (
@@ -13,7 +14,10 @@ const favouritesList = () => {
             ondrop="dropHandler(event);"
             ondragover="dragoverHandler(event);"
         **/
-        ></div>
+        >
+          <FavouriteItem />
+          <FavouriteItem />
+        </div>
       </div>
     </>
   );
