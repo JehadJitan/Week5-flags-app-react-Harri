@@ -4,19 +4,12 @@ import DropDown from "./DropDown";
 import "./SearchBar.css";
 
 const Header = () => {
-  /**
-        @todo: 
-            const [region, setRegion] = useState("");
-            const handleChange = (event) => {
-                setRegion(event.target.value);
-            };
-    **/
   return (
     <>
-      <header className="header">
+      <div className="searchBar1">
         <SearchBar />
         <DropDown />
-      </header>
+      </div>
     </>
   );
 };

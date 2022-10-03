@@ -2,8 +2,14 @@
   --header-bg-color:#ffffff;
 }
 
+.moonIcon{
+  margin-right: 0.5rem;
+}
+
 .box {
-  /* box-shadow: 0 10px 6px -10px gray; */
+  overflow: "hidden";
+  width: "100%";
+  box-shadow: 0 4px 10px -8px gray;
   background-color: var(--header-bg-color) !important;
 }
 .appBar{

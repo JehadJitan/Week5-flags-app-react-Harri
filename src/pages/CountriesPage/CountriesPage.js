@@ -1,7 +1,9 @@
 import React from "react";
 import FiltrationBar from "../../Components/FiltrationBar/FiltrationContainer";
 import CountriesContianer from "./Components/CountriesContainer";
-const AllCountries = () => {
+import "./CountriesPage.css";
+
+const CountriesPage = () => {
   return (
     <>
       <FiltrationBar />
@@ -10,4 +12,4 @@ const AllCountries = () => {
   );
 };
 
-export default AllCountries;
+export default CountriesPage;

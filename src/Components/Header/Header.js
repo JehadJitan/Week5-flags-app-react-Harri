@@ -32,6 +32,7 @@ export default function NavBar() {
             display: { xs: "flex" },
             flexDirection: "row",
             justifyContent: "space-between",
+            alignItems: "center",
             p: 0,
           }}
         >
@@ -39,12 +40,11 @@ export default function NavBar() {
             className="mainTitle"
             variant="h5"
             component="div"
-            gutterBottom
             noWrap
             sx={{
               color: "text.primary",
-              fontWeight: 700,
-              fontSize: "24px",
+              fontWeight: 800,
+              // fontSize: "24px",
             }}
           >
             Where in the world?
@@ -52,16 +52,18 @@ export default function NavBar() {
           <Stack direction="row" style={{ alignItems: "center" }}>
             <Button
               onClick={temp}
-              variant="text"
+              variant="h6"
               sx={{
                 textTransform: "none",
                 color: "text.primary",
+                fontWeight: 700,
+                fontSize: "18px",
               }}
             >
               {theme.palette.mode === "dark" ? (
-                <DarkModeIcon />
+                <DarkModeIcon className="moonIcon" />
               ) : (
-                <DarkModeOutlinedIcon />
+                <DarkModeOutlinedIcon className="moonIcon" />
               )}
               Dark Mode
             </Button>

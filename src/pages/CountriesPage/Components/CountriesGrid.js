@@ -11,7 +11,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { getAllCountries, getCountriesByRegion } from "../../../API/API-List";
 import { RegionContext } from "../../../Context/RegionContext";
-import "../AllCountries.css";
+import "../CountriesPage.css";
 import InputLabelValue from "./InputLabelValue";
 
 const Countries = () => {
