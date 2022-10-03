@@ -69,12 +69,13 @@
     margin-left: 5% !important;
     width: auto;
     height: 30px !important;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
+    box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2) !important;
   }
   
   .backBtn {
     margin: 3rem !important;
     width: auto;
+    box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2) !important;
   }
   
   .arrowIcon {

@@ -1,7 +1,6 @@
 import React, { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider as MuiThemeProvider, alpha } from "@mui/material/styles";
-import { green, red, yellow } from "@mui/material/colors";
 
 export const ToggleColorMode = createContext({
   handleToggleColor: () => {},

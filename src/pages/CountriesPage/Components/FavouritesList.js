@@ -1,11 +1,24 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import FavouriteItem from "./FavouriteItem";
 
 const favouritesList = () => {
   return (
     <>
-      <div className="favouritesContainer">
-        <h2 className="favouritesTitle">Favourites</h2>
+      <div
+        className="favouritesContainer"
+        ondrop="dropHandler(event);"
+        ondragover="dragoverHandler(event)"
+      >
+        <Typography
+          variant="h5"
+          component="h5"
+          color="text.primary"
+          className="favouritesTitle"
+          sx={{ fontWeight: 800 }}
+        >
+          Favourites
+        </Typography>
         <div
           className="favouritesList"
           id="style-1"

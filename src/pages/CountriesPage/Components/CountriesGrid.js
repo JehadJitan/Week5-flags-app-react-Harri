@@ -50,7 +50,13 @@ const Countries = () => {
                 name: country.name.common,
               }}
             >
-              <Card key={country.name.common} className="card">
+              <Card
+                key={country.name.common}
+                className="card"
+                ondragstart="dragstartHandler(event);"
+                ondragend="dragendHandler(event);"
+                draggable="true"
+              >
                 <CardMedia
                   component="img"
                   image={country.flags.svg}
@@ -66,14 +72,14 @@ const Countries = () => {
                     variant="h5"
                     component="div"
                     className="cardTitle"
-                    sx={{ fontSize: "24px", fontWeight: 700 }}
+                    sx={{ fontSize: "24px", fontWeight: 800 }}
                   >
                     {country.name.common}
                   </Typography>
                   <Typography variant="body2" component={"span"}>
                     <InputLabelValue>
                       <span className="cardLabel">Population: </span>
-                      {country.population}
+                      {country.population.toLocaleString("en")}
                     </InputLabelValue>
 
                     <InputLabelValue>

@@ -9,17 +9,21 @@
 
 .favouritesTitle {
   padding: 1rem;
-  font-weight: 700;
-  font-size: 24px;
 }
 
 .cardLabel {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
 }
 
 .card{
   background: var( --card-bg-color) !important;
+  box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2) !important;
+}
+
+.card:hover{
+  /* box-shadow: -1px 10px 29px 0px rgba(0,0,0,0.8) !important; */
+  background-color: rgb(202, 202, 202) !important;
 }
 
 .cardTitle {
@@ -31,7 +35,7 @@
   background-color: var(--favourites-bg-color) !important;
   height: 100%;
   border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 10px 30px 0px;
+  box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2);
   padding: 0.5rem;
 }
 

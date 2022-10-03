@@ -32,9 +32,8 @@ const SearchBar = () => {
         p: "2px 4px",
         display: "flex",
         alignItems: "center",
-        width: 670,
-        height: 60,
-        boxShadow: 2,
+        width: 650,
+        height: 55,
       }}
     >
       <IconButton sx={{ p: "10px" }} aria-label="search">
@@ -44,7 +43,7 @@ const SearchBar = () => {
         sx={{ ml: 1, flex: 1 }}
         type="text"
         placeholder="Search for a country..."
-        inputProps={{ "aria-label": "Search for a country..." }}
+        inputProps={{ "Nunito Sans": "Search for a country..." }}
         onChange={handleSearch}
         onSubmit={handleSearch}
       />

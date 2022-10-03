@@ -12,7 +12,10 @@ const DropDown = () => {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 200 }} id="headerDropdown">
+    <FormControl
+      sx={{ m: 1, minWidth: 210, borderRadius: 1 }}
+      id="headerDropdown"
+    >
       <InputLabel id="demo-simple-select-helper-label">
         Filter by Region
       </InputLabel>
@@ -21,7 +24,12 @@ const DropDown = () => {
         labelId="demo-simple-select-helper-label"
         id="demo-simple-select-helper"
         label="Filter by Region"
-        sx={{ height: 60, boxShadow: 2 }}
+        sx={{
+          height: 55,
+          boxShadow: "none",
+          ".MuiOutlinedInput-notchedOutline": { border: 0 },
+        }}
+        disableUnderline="true"
         defaultValue=""
         value={region}
         onChange={handleChange}
