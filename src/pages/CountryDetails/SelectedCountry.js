@@ -80,7 +80,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ color: "text.primary", fontWeight: 700 }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Native Name:{" "}
                   </Typography>
@@ -92,7 +92,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ color: "text.primary", fontWeight: 700 }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Population:{" "}
                   </Typography>
@@ -104,7 +104,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ color: "text.primary", fontWeight: 700 }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Region:{" "}
                   </Typography>
@@ -116,7 +116,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ color: "text.primary", fontWeight: 700 }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Sub Region:{" "}
                   </Typography>
@@ -128,7 +128,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ color: "text.primary", fontWeight: 700 }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Capital:{" "}
                   </Typography>
@@ -144,7 +144,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ fontWeight: 700, color: "text.primary" }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Top Level Domain:{" "}
                   </Typography>
@@ -156,7 +156,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ color: "text.primary", fontWeight: 700 }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Currencies:{" "}
                   </Typography>
@@ -168,7 +168,7 @@ const SelectedCountry = () => {
                   <Typography
                     component="span"
                     sx={{ color: "text.primary", fontWeight: 700 }}
-                    className="inputLabel"
+                    className="countryDetail"
                   >
                     Languages:{" "}
                   </Typography>
@@ -184,7 +184,7 @@ const SelectedCountry = () => {
               <Typography
                 component="span"
                 sx={{ color: "text.primary", fontWeight: 700 }}
-                className="inputLabel"
+                className="countryDetail"
               >
                 Border Countries:
               </Typography>

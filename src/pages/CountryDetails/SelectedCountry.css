@@ -83,13 +83,13 @@ li {
   margin-right: 0.5rem;
 }
 
-.inputLabel {
+.countryDetail {
   font-size: 18px !important;
   padding-bottom: 5px;
 }
 
 @media (max-width: 414px) {
-  .inputLabel {
+  .countryDetail {
     font-size: 16px !important;
   }
 
