@@ -33,7 +33,6 @@ export default function NavBar() {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
-            p: 0,
           }}
         >
           <Typography
@@ -44,20 +43,20 @@ export default function NavBar() {
             sx={{
               color: "text.primary",
               fontWeight: 800,
-              // fontSize: "24px",
             }}
           >
             Where in the world?
           </Typography>
           <Stack direction="row" style={{ alignItems: "center" }}>
             <Button
+              className="darkMode"
               onClick={temp}
               variant="h6"
               sx={{
                 textTransform: "none",
                 color: "text.primary",
                 fontWeight: 700,
-                fontSize: "18px",
+                fontSize: "16px",
               }}
             >
               {theme.palette.mode === "dark" ? (

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo } from "react";
+import React, { createContext, useState, useMemo, useEffect } from "react";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider as MuiThemeProvider, alpha } from "@mui/material/styles";
 
@@ -7,9 +7,11 @@ export const ToggleColorMode = createContext({
 });
 
 const ThemeProvider = ({ children }) => {
-  const [colorMode, setColorMode] = useState("light");
+  const [colorMode, setColorMode] = useState(
+    () => localStorage.getItem("colorMode") ?? "light"
+  );
+
   const handle = (vr) => {
-    setColorMode(vr);
     if (vr === "dark") {
       document.documentElement.style.setProperty("--bg-color", "#121212");
       document.documentElement.style.setProperty(
@@ -34,6 +36,12 @@ const ThemeProvider = ({ children }) => {
       );
     }
   };
+
+  useEffect(() => {
+    handle(colorMode);
+    localStorage.setItem("colorMode", colorMode);
+  }, [colorMode]);
+
   const theme = useMemo(() => {
     const theme = createTheme({
       typography: {
@@ -91,8 +99,9 @@ const ThemeProvider = ({ children }) => {
       },
     });
   }, [colorMode]);
+
   return (
-    <ToggleColorMode.Provider value={{ handleToggleColor: handle }}>
+    <ToggleColorMode.Provider value={{ handleToggleColor: setColorMode }}>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </ToggleColorMode.Provider>
   );

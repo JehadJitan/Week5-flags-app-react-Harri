@@ -5,23 +5,13 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ onChangeSearchByName }) => {
   const [searchCountry, setSearchCountry] = useState("");
-  let countriesss = ["palestine"];
-  function handleSearch(e) {
-    setSearchCountry(e.target.value);
-    searchFiltration();
-    console.log("you clicked me");
-  }
 
-  function searchFiltration() {
-    countriesss.filter((val) => {
-      if (searchCountry == "") {
-        return val;
-      } else if (val.toLowerCase().includes(searchCountry.toLowerCase())) {
-        return val;
-      }
-    });
+  function handleSearch(e) {
+    const name = e.target.value;
+    setSearchCountry(name);
+    onChangeSearchByName(name);
   }
 
   return (
@@ -32,7 +22,7 @@ const SearchBar = () => {
         p: "2px 4px",
         display: "flex",
         alignItems: "center",
-        width: 650,
+        width: "calc(100vw - 70%)",
         height: 55,
       }}
     >
@@ -43,9 +33,10 @@ const SearchBar = () => {
         sx={{ ml: 1, flex: 1 }}
         type="text"
         placeholder="Search for a country..."
-        inputProps={{ "Nunito Sans": "Search for a country..." }}
+        inputProps={{ "nunito-sans": "Search for a country..." }}
         onChange={handleSearch}
-        onSubmit={handleSearch}
+        value={searchCountry}
+        onBlur={() => setSearchCountry((t) => t.trim())}
       />
     </Paper>
   );

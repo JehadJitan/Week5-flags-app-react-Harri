@@ -6,18 +6,52 @@ import { Typography } from "@mui/material";
 import "./SelectedCountry.css";
 import { getCountryDetails } from "../../API/API-List";
 import { Link } from "react-router-dom";
+import "./SelectedCountry.css";
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 
 const SelectedCountry = () => {
   const location = useLocation();
-  console.log(location.state.name);
 
-  const [country2, setCountry2] = useState([]);
+  const [country, setCountry] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    getCountryDetails(location.state.name).then((response) =>
-      setCountry2(response)
-    );
+    getCountryDetails(location.state.name).then((response) => {
+      setCountry(response[0]);
+      setIsLoading(false);
+    });
   }, []);
-  console.log(country2);
+
+  if (isLoading)
+    return (
+      <Stack spacing={5} sx={{ margin: "3rem" }} className="skltn">
+        <Skeleton
+          variant="rounded"
+          width={100}
+          height={40}
+          className="skltn-backArr"
+        />
+        <Skeleton
+          variant="rounded"
+          width={"95vw"}
+          height={"60vh"}
+          className="skltn-content"
+        />
+      </Stack>
+    );
+
+  const languages = country?.languages;
+  const language = Object.values(languages)?.join(", ");
+
+  const currencies = country?.currencies;
+  const currency = Object.values(currencies)
+    .map(({ name }) => name)
+    .join(", ");
+
+  const nativeNames = country?.name?.nativeName;
+  const nativeName = Object.values(nativeNames)?.[0]?.common;
+  const borderArr = country?.borders ?? [];
+
   return (
     <>
       <Link className="routeL" to="/Week5-flags-app-react-Harri" key="123">
@@ -26,7 +60,6 @@ const SelectedCountry = () => {
           color="grey"
           variant="contained"
           className="backBtn"
-          // onClick={routeChange}
         >
           <ArrowBackIcon fontSize="small" className="arrowIcon" />
           Back
@@ -34,11 +67,11 @@ const SelectedCountry = () => {
       </Link>
       <article className="detailedCountryContainer">
         <div className="flagDiv">
-          {/* <img src={country2[0].flags.svg} /> */}
+          <img className="flagImg" src={country?.flags.svg} />
         </div>
         <div className="countryDetails">
-          <Typography variant="h5" color="text.primary" className="countryName">
-            "toBeAdded"
+          <Typography variant="h4" color="text.primary" className="countryName">
+            {country?.name.common}
           </Typography>
           <div className="details">
             <div className="firstColumn">
@@ -52,7 +85,7 @@ const SelectedCountry = () => {
                     Native Name:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {nativeName}
                   </Typography>
                 </li>
                 <li>
@@ -64,7 +97,7 @@ const SelectedCountry = () => {
                     Population:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {country?.population.toLocaleString("en")}
                   </Typography>
                 </li>
                 <li>
@@ -76,7 +109,7 @@ const SelectedCountry = () => {
                     Region:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {country?.region}
                   </Typography>
                 </li>
                 <li>
@@ -88,7 +121,7 @@ const SelectedCountry = () => {
                     Sub Region:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {country?.subregion}
                   </Typography>
                 </li>
                 <li>
@@ -100,7 +133,7 @@ const SelectedCountry = () => {
                     Capital:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {country?.capital}
                   </Typography>
                 </li>
               </ul>
@@ -116,7 +149,7 @@ const SelectedCountry = () => {
                     Top Level Domain:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {country?.tld}
                   </Typography>
                 </li>
                 <li>
@@ -128,7 +161,7 @@ const SelectedCountry = () => {
                     Currencies:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {currency}
                   </Typography>
                 </li>
                 <li>
@@ -140,7 +173,7 @@ const SelectedCountry = () => {
                     Languages:{" "}
                   </Typography>
                   <Typography component="span" sx={{ color: "text.primary" }}>
-                    "toBeAdded"
+                    {language}
                   </Typography>
                 </li>
               </ul>
@@ -148,25 +181,28 @@ const SelectedCountry = () => {
           </div>
           <div className="borderCountries">
             <div className="borderCountriesLabel">
-              <Typography color="text.primary">Border Countries:</Typography>
+              <Typography
+                component="span"
+                sx={{ color: "text.primary", fontWeight: 700 }}
+                className="inputLabel"
+              >
+                Border Countries:
+              </Typography>
             </div>
-            {/* <div className="borderCountriesButton">
-              {location.state.border.map(function (borderCountry, i) {
-                return (
-                  <Button
-                    // variant;=""
-                    sx={{ color: "text.primary" }}
-                    color="grey"
-                    variant="container"
-                    className="borderBtn"
-                    size="small"
-                    key={i}
-                  >
-                    {borderCountry}
-                  </Button>
-                );
-              })}
-            </div> */}
+            <div className="borderCountriesButton">
+              {borderArr.slice(0, 3).map((borderCountry) => (
+                <Button
+                  sx={{ color: "text.primary" }}
+                  color="grey"
+                  variant="container"
+                  className="borderBtn"
+                  size="small"
+                  key={borderCountry}
+                >
+                  {borderCountry}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </article>

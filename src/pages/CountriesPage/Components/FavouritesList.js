@@ -2,7 +2,11 @@ import { Typography } from "@mui/material";
 import React from "react";
 import FavouriteItem from "./FavouriteItem";
 
-const favouritesList = () => {
+const FavouritesList = ({
+  favouriteCountries,
+  handleDropInFavourites,
+  onDeleteFavourate,
+}) => {
   return (
     <>
       <div className="favouritesContainer">
@@ -18,17 +22,23 @@ const favouritesList = () => {
         <div
           className="favouritesList"
           id="style-1"
-          ondrop="dropHandler(event)"
-          ondragover="dragoverHandler(event)"
+          onDrop={handleDropInFavourites}
+          onDragOver={(e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "move";
+          }}
         >
-          <FavouriteItem />
-          <FavouriteItem />
-          <FavouriteItem />
-          <FavouriteItem />
+          {favouriteCountries.map((country) => (
+            <FavouriteItem
+              key={country.name}
+              country={country}
+              onDelete={onDeleteFavourate}
+            />
+          ))}
         </div>
       </div>
     </>
   );
 };
 
-export default favouritesList;
+export default FavouritesList;

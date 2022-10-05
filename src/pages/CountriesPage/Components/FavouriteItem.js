@@ -1,23 +1,21 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import CancelIcon from "@mui/icons-material/Cancel";
-import germany from "./germany.png";
 
-const FavouriteItem = () => {
+const FavouriteItem = ({ country, onDelete }) => {
   const handleClick = () => {
-    console.log("should remove country from fav list");
+    onDelete(country.name);
   };
   return (
     <div className="favouriteItem">
       <div className="favouriteItem-LeftContainer">
-        <img src={germany} className="favouriteItem-flag" />
+        <img src={country?.flag} className="favouriteItem-flag" />
         <Typography
           variant="subtitle1"
-          component="subtitle1"
           color="text.primary"
           sx={{ fontWeight: 800 }}
         >
-          Germany
+          {country?.name}
         </Typography>
       </div>
       <div className="favouriteItem-RightContainer">

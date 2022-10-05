@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
 import "./SearchBar.css";
 
-const Header = () => {
+const Header = ({ region, setRegion, onChangeSearchByName }) => {
   return (
     <>
       <div className="searchBar1">
-        <SearchBar />
-        <DropDown />
+        <SearchBar onChangeSearchByName={onChangeSearchByName} />
+        <DropDown region={region} setRegion={setRegion} />
       </div>
     </>
   );

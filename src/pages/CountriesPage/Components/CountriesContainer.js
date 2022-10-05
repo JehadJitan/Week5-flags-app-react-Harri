@@ -5,7 +5,15 @@ import { Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-const MainContainer = () => {
+const CountriesContainer = ({
+  countries,
+  areCountriesLoading,
+  handleDropInFavourites,
+  favouriteCountries,
+  onDeleteFavourate,
+  isFavouriteCountry,
+  onToggleFavourite,
+}) => {
   const theme = useTheme();
   const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
 
@@ -13,7 +21,11 @@ const MainContainer = () => {
     <Grid container columnSpacing={4} px={6}>
       {isLgUp && (
         <Grid item xs={0} lg={3} sx={{ height: "calc(100vh - 300px)" }}>
-          <FavouriteList />
+          <FavouriteList
+            handleDropInFavourites={handleDropInFavourites}
+            favouriteCountries={favouriteCountries}
+            onDeleteFavourate={onDeleteFavourate}
+          />
         </Grid>
       )}
       <Grid
@@ -23,10 +35,15 @@ const MainContainer = () => {
         lg={9}
         sx={{ height: "calc(100vh - 300px)", overflowY: "auto" }}
       >
-        <CountriesGrid />
+        <CountriesGrid
+          countries={countries}
+          areCountriesLoading={areCountriesLoading}
+          isFavouriteCountry={isFavouriteCountry}
+          onToggleFavourite={onToggleFavourite}
+        />
       </Grid>
     </Grid>
   );
 };
 
-export default MainContainer;
+export default CountriesContainer;
