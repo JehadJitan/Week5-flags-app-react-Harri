@@ -2,6 +2,7 @@
   --card-bg-color: #ffffff;
   --favourites-bg-color: #ffffff;
   --box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2);
+  --noMatchFound-color: #000000;
 }
 
 .inputLabel {
@@ -79,6 +80,10 @@
 .cardDetailedText{
   font-size: 18px;
   padding-bottom: 5px;
+}
+
+.noMatchFound{
+  color: var(--noMatchFound-color);
 }
 
 @media (max-width: 768px) {

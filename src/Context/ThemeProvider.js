@@ -18,6 +18,10 @@ const ThemeProvider = ({ children }) => {
         "#343a40"
       );
       document.documentElement.style.setProperty(
+        "--noMatchFound-color",
+        "#ffffff"
+      );
+      document.documentElement.style.setProperty(
         "--dropdown-bg-color",
         "#1e1e1e"
       );
@@ -33,6 +37,10 @@ const ThemeProvider = ({ children }) => {
       );
       document.documentElement.style.setProperty("--box-shadow", "none");
     } else {
+      document.documentElement.style.setProperty(
+        "--noMatchFound-color",
+        "#000000"
+      );
       document.documentElement.style.setProperty(
         "--scroll-bg-color",
         "#f5f5f5"

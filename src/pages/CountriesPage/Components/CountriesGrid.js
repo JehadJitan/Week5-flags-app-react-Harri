@@ -18,7 +18,7 @@ const Countries = ({
           {areCountriesLoading ? (
             <CircularProgress />
           ) : (
-            <Typography>No Results Found</Typography>
+            <Typography className="noMatchFound">No Results Found</Typography>
           )}
         </Grid>
       </Grid>
