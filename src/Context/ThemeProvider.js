@@ -23,7 +23,12 @@ const ThemeProvider = ({ children }) => {
         "--header-bg-color",
         "#1e1e1e"
       );
+      document.documentElement.style.setProperty("--box-shadow", "none");
     } else {
+      document.documentElement.style.setProperty(
+        "--box-shadow",
+        "0 4px 10px -8px gray"
+      );
       document.documentElement.style.setProperty("--bg-color", "#fafafa");
       document.documentElement.style.setProperty(
         "--favourites-bg-color",

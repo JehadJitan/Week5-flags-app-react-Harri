@@ -1,3 +1,6 @@
+:root{
+ --box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2);
+}
 .searchBar1 {
   display: flex;
   flex-direction: row;
@@ -7,11 +10,11 @@
 }
 
 #headerSearch{
-  box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2);
+  box-shadow: var(--box-shadow);
 }
 
 #headerDropdown{
-  box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2);
+  box-shadow: var(--box-shadow);
 }
 
 @media (max-width: 414px) {

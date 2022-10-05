@@ -1,5 +1,6 @@
 :root{
   --header-bg-color:#ffffff;
+  --box-shadow: 0 4px 10px -8px gray;
 }
 
 .moonIcon{
@@ -9,7 +10,7 @@
 .box {
   overflow: "hidden";
   width: "100%";
-  box-shadow: 0 4px 10px -8px gray;
+  box-shadow: var(--box-shadow) !important;
   background-color: var(--header-bg-color) !important;
 }
 .appBar{
