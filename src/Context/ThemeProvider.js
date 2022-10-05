@@ -17,6 +17,10 @@ const ThemeProvider = ({ children }) => {
         "--scroll-bg-color",
         "#343a40"
       );
+      document.documentElement.style.setProperty(
+        "--dropdown-bg-color",
+        "#1e1e1e"
+      );
       document.documentElement.style.setProperty("--bg-color", "#121212");
       document.documentElement.style.setProperty(
         "--favourites-bg-color",
@@ -32,6 +36,10 @@ const ThemeProvider = ({ children }) => {
       document.documentElement.style.setProperty(
         "--scroll-bg-color",
         "#f5f5f5"
+      );
+      document.documentElement.style.setProperty(
+        "--dropdown-bg-color",
+        "#ffffff"
       );
       document.documentElement.style.setProperty(
         "--box-shadow",
