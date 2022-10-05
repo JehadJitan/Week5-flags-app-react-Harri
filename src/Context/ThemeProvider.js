@@ -13,6 +13,10 @@ const ThemeProvider = ({ children }) => {
 
   const handle = (vr) => {
     if (vr === "dark") {
+      document.documentElement.style.setProperty(
+        "--scroll-bg-color",
+        "#343a40"
+      );
       document.documentElement.style.setProperty("--bg-color", "#121212");
       document.documentElement.style.setProperty(
         "--favourites-bg-color",
@@ -25,6 +29,10 @@ const ThemeProvider = ({ children }) => {
       );
       document.documentElement.style.setProperty("--box-shadow", "none");
     } else {
+      document.documentElement.style.setProperty(
+        "--scroll-bg-color",
+        "#f5f5f5"
+      );
       document.documentElement.style.setProperty(
         "--box-shadow",
         "0 4px 10px -8px gray"
