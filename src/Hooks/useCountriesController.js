@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { getAllCountries, fetchCountriesByName } from "../API/API-List";
+import { getAllCountries, getCountryDetails } from "../API/API-List";
 
-export const useContorller = () => {
+export const useCountriesController = () => {
   const [countries, setCountries] = useState([]);
   const [region, setRegion] = useState("");
   const [areCountriesLoading, setAreCountriesLoading] = useState(false);
@@ -47,7 +47,7 @@ export const useContorller = () => {
   useEffect(() => {
     setAreCountriesLoading(true);
     (!!searchByName?.trim()
-      ? fetchCountriesByName(searchByName.trim())
+      ? getCountryDetails(searchByName.trim())
       : getAllCountries()
     )
       .then((data) => setCountries(data))

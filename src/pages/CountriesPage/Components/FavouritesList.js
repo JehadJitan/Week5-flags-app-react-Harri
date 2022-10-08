@@ -5,7 +5,7 @@ import FavouriteItem from "./FavouriteItem";
 const FavouritesList = ({
   favouriteCountries,
   handleDropInFavourites,
-  onDeleteFavourate,
+  onDeleteFavourite,
 }) => {
   return (
     <>
@@ -32,7 +32,7 @@ const FavouritesList = ({
             <FavouriteItem
               key={country.name}
               country={country}
-              onDelete={onDeleteFavourate}
+              onDelete={onDeleteFavourite}
             />
           ))}
         </div>

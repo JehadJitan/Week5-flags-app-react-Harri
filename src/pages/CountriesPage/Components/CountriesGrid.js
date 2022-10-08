@@ -31,7 +31,7 @@ const Countries = ({
         <CountryCard
           key={country.name.common}
           country={country}
-          isFaivourate={isFavouriteCountry(country.name.common)}
+          isFavourite={isFavouriteCountry(country.name.common)}
           onToggleFavourite={onToggleFavourite}
         />
       ))}

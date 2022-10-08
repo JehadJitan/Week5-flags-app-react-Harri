@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import "../CountriesPage.css";
 import CardDetailedText from "./CardDetailedText";
 
-const CountryCard = ({ country, isFaivourate, onToggleFavourite }) => {
+const CountryCard = ({ country, isFavourite, onToggleFavourite }) => {
   const theme = useTheme();
   const isLgDown = useMediaQuery(theme.breakpoints.down("lg"));
 
@@ -74,12 +74,12 @@ const CountryCard = ({ country, isFaivourate, onToggleFavourite }) => {
           <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
             <IconButton
               onClick={(_) =>
-                onToggleFavourite(country.name.common, !isFaivourate)
+                onToggleFavourite(country.name.common, !isFavourite)
               }
             >
               <StarIcon
                 fontSize="large"
-                color={isFaivourate ? "warning" : "disabled"}
+                color={isFavourite ? "warning" : "disabled"}
               />
             </IconButton>
           </CardActions>

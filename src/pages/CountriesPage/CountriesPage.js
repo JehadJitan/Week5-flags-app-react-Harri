@@ -1,6 +1,6 @@
 import React from "react";
 import FiltrationBar from "../../Components/FiltrationBar/FiltrationContainer";
-import { useContorller } from "../../Hooks/useController";
+import { useCountriesController } from "../../Hooks/useCountriesController";
 import CountriesContianer from "./Components/CountriesContainer";
 import "./CountriesPage.css";
 
@@ -16,7 +16,7 @@ const CountriesPage = () => {
     isFavouriteCountry,
     handleToggleFavourite,
     handleChangeSearchByName,
-  } = useContorller();
+  } = useCountriesController();
   return (
     <>
       <FiltrationBar
@@ -29,7 +29,7 @@ const CountriesPage = () => {
         areCountriesLoading={areCountriesLoading}
         handleDropInFavourites={handleDropInFavourites}
         favouriteCountries={favouriteCountries}
-        onDeleteFavourate={handleDeleteFavourite}
+        onDeleteFavourite={handleDeleteFavourite}
         isFavouriteCountry={isFavouriteCountry}
         onToggleFavourite={handleToggleFavourite}
       />

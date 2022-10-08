@@ -5,10 +5,19 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import "./SearchBar.css";
 
-const DropDown = ({ region, setRegion }) => {
+const RegionDropDown = ({ region, setRegion }) => {
   const handleChange = (event) => {
     setRegion(event.target.value);
   };
+
+  const regionNames = [
+    "Africa",
+    "Americas",
+    "Asia",
+    "Europe",
+    "Oceania",
+    "Clear Filter",
+  ];
 
   return (
     <FormControl sx={{ minWidth: 225, borderRadius: 1 }} id="headerDropdown">
@@ -29,15 +38,20 @@ const DropDown = ({ region, setRegion }) => {
         value={region}
         onChange={handleChange}
       >
-        <MenuItem value="Africa">Africa</MenuItem>
-        <MenuItem value="Americas">Americas</MenuItem>
-        <MenuItem value="Asia">Asia</MenuItem>
-        <MenuItem value="Europe">Europe</MenuItem>
-        <MenuItem value="Oceania">Oceania</MenuItem>
-        <MenuItem value={""}>Clear Filter</MenuItem>
+        {regionNames.map((r) =>
+          r !== "Clear Filter" ? (
+            <MenuItem key={r} value={r}>
+              {r}
+            </MenuItem>
+          ) : (
+            <MenuItem key={r} value={""}>
+              {r}
+            </MenuItem>
+          )
+        )}
       </Select>
     </FormControl>
   );
 };
 
-export default DropDown;
+export default RegionDropDown;

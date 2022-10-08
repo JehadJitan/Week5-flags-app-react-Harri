@@ -10,7 +10,7 @@ const CountriesContainer = ({
   areCountriesLoading,
   handleDropInFavourites,
   favouriteCountries,
-  onDeleteFavourate,
+  onDeleteFavourite,
   isFavouriteCountry,
   onToggleFavourite,
 }) => {
@@ -24,7 +24,7 @@ const CountriesContainer = ({
           <FavouriteList
             handleDropInFavourites={handleDropInFavourites}
             favouriteCountries={favouriteCountries}
-            onDeleteFavourate={onDeleteFavourate}
+            onDeleteFavourite={onDeleteFavourite}
           />
         </Grid>
       )}
