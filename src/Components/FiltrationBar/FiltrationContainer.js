@@ -1,16 +1,24 @@
 import React from "react";
-import SearchForACountry from "./SearchForACountry";
 import FilterByRegion from "./FilterByRegion";
+import SearchBar from "./SearchBar";
 import "./SearchBar.css";
 
-const FiltrationContainer = ({ region, setRegion, onChangeSearchByName }) => {
+const FiltrationContainer = ({
+  selectedRegion,
+  onChangeRegion,
+  onChangeSearchByName,
+}) => {
   return (
-    <>
-      <div className="searchBar">
-        <SearchForACountry onChangeSearchByName={onChangeSearchByName} />
-        <FilterByRegion region={region} setRegion={setRegion} />
-      </div>
-    </>
+    <div className="searchBar">
+      <SearchBar
+        placeholder="Search for a country..."
+        onChange={onChangeSearchByName}
+      />
+      <FilterByRegion
+        selectedRegion={selectedRegion}
+        onChangeRegion={onChangeRegion}
+      />
+    </div>
   );
 };
 

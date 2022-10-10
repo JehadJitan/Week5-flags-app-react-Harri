@@ -2,16 +2,21 @@ import React, { createContext, useState, useMemo, useEffect } from "react";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider as MuiThemeProvider, alpha } from "@mui/material/styles";
 
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from "../utils/localStorage";
+
 export const ToggleColorMode = createContext({
   handleToggleColor: () => {},
 });
 
 const ThemeProvider = ({ children }) => {
   const [colorMode, setColorMode] = useState(
-    () => localStorage.getItem("colorMode") ?? "light"
+    getLocalStorageItem("colorMode", "light")
   );
 
-  const handle = (vr) => {
+  const updateCssVariables = (vr) => {
     if (vr === "dark") {
       document.documentElement.style.setProperty(
         "--scroll-bg-color",
@@ -67,8 +72,8 @@ const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    handle(colorMode);
-    localStorage.setItem("colorMode", colorMode);
+    updateCssVariables(colorMode);
+    setLocalStorageItem({ key: "colorMode", value: colorMode });
   }, [colorMode]);
 
   const theme = useMemo(() => {

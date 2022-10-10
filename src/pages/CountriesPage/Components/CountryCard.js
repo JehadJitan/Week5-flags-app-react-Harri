@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../../constants";
 import "../CountriesPage.css";
 import CardDetailedText from "./CardDetailedText";
 
@@ -21,6 +22,8 @@ const CountryCard = ({ country, isFavourite, onToggleFavourite }) => {
     e.dataTransfer.setData("countryId", country.name.common);
   };
 
+  const countryPath = `${BASE_URL}/SelectedCountry/${country.name.common}`;
+
   return (
     <Grid item xs={12} md={6} lg={4} draggable="true">
       <Card
@@ -29,12 +32,7 @@ const CountryCard = ({ country, isFavourite, onToggleFavourite }) => {
         onDragStart={handleDragStart}
         draggable="true"
       >
-        <Link
-          className="routeL"
-          to="/Week5-flags-app-react-Harri/SelectedCountry"
-          key={country.name.common}
-          state={{ name: country.name.common }}
-        >
+        <Link className="routeL" to={countryPath} key={country.name.common}>
           <CardMedia
             component="img"
             image={country.flags.svg}

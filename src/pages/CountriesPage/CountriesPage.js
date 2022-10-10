@@ -1,7 +1,7 @@
 import React from "react";
 import FiltrationBar from "../../Components/FiltrationBar/FiltrationContainer";
 import { useCountriesController } from "../../Hooks/useCountriesController";
-import CountriesContianer from "./Components/CountriesContainer";
+import CountriesContainer from "./Components/CountriesContainer";
 import "./CountriesPage.css";
 
 const CountriesPage = () => {
@@ -11,8 +11,8 @@ const CountriesPage = () => {
     handleDropInFavourites,
     favouriteCountries,
     handleDeleteFavourite,
-    region,
-    setRegion,
+    selectedRegion,
+    onChangeRegion,
     isFavouriteCountry,
     handleToggleFavourite,
     handleChangeSearchByName,
@@ -20,11 +20,11 @@ const CountriesPage = () => {
   return (
     <>
       <FiltrationBar
-        region={region}
-        setRegion={setRegion}
+        selectedRegion={selectedRegion}
+        onChangeRegion={onChangeRegion}
         onChangeSearchByName={handleChangeSearchByName}
       />
-      <CountriesContianer
+      <CountriesContainer
         countries={countries}
         areCountriesLoading={areCountriesLoading}
         handleDropInFavourites={handleDropInFavourites}

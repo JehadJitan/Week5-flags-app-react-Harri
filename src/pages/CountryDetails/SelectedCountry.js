@@ -1,15 +1,15 @@
-import React from "react";
-import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import "./SelectedCountry.css";
+import Button from "@mui/material/Button";
+import React from "react";
 import { Link } from "react-router-dom";
-import "./SelectedCountry.css";
+import { BASE_URL } from "../../constants";
 import CountryDetailsContainer from "./Components/CountryDetailsContainer";
+import "./SelectedCountry.css";
 
 const SelectedCountry = () => {
   return (
     <>
-      <Link className="routeL" to="/Week5-flags-app-react-Harri" key="123">
+      <Link className="routeL" to={BASE_URL}>
         <Button
           sx={{ color: "text.primary" }}
           color="grey"

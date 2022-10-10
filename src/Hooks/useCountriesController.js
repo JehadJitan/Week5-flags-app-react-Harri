@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getAllCountries, getCountryDetails } from "../API/API-List";
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from "../utils/localStorage";
 
 export const useCountriesController = () => {
   const [countries, setCountries] = useState([]);
@@ -7,19 +11,14 @@ export const useCountriesController = () => {
   const [areCountriesLoading, setAreCountriesLoading] = useState(false);
   const [searchByName, setSearchByName] = useState("");
   const [favouriteIds, setFavouriteIds] = useState(() => {
-    let ids = [];
-    try {
-      ids = JSON.parse(localStorage.getItem("favouriteIds")) ?? [];
-    } catch (error) {
-      ids = [];
-    }
+    const ids = getLocalStorageItem("favouriteIds", []);
     return new Set(ids);
   });
 
   const timerId = useRef(undefined);
 
   useEffect(() => {
-    localStorage.setItem("favouriteIds", JSON.stringify([...favouriteIds]));
+    setLocalStorageItem({ key: "favouriteIds", value: [...favouriteIds] });
   }, [favouriteIds]);
 
   const filteredCountriesByRegion = useMemo(
@@ -96,8 +95,8 @@ export const useCountriesController = () => {
     favouriteCountries,
     handleDropInFavourites,
     handleDeleteFavourite,
-    region,
-    setRegion,
+    selectedRegion: region,
+    onChangeRegion: setRegion,
     isFavouriteCountry,
     handleToggleFavourite,
     handleChangeSearchByName,

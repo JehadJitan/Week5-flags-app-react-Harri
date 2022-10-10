@@ -1,25 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
-import { getCountryDetails } from "../../../API/API-List";
-import "../SelectedCountry.css";
+import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getCountriesByCode, getCountryDetails } from "../../../API/API-List";
+import "../SelectedCountry.css";
 
 const CountryDetailsContainer = () => {
-  const location = useLocation();
-
+  const { countryName } = useParams();
   const [country, setCountry] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [borderCountries, setBorderCountries] = useState([]);
+  const [isLoadingBorders, setIsLoadingBorders] = useState(true);
+  const [isLoadingDetails, setIsLoadingDetails] = useState(true);
+
   useEffect(() => {
-    getCountryDetails(location.state.name).then((response) => {
-      setCountry(response[0]);
-      setIsLoading(false);
+    getCountryDetails(countryName).then((response) => {
+      setCountry(response[0] ?? {});
+      setIsLoadingDetails(false);
     });
   }, []);
 
-  if (isLoading)
+  useEffect(() => {
+    if (isLoadingDetails) {
+      return;
+    }
+
+    const { borders = [] } = country;
+
+    if (!borders.length) {
+      setIsLoadingBorders(false);
+      return;
+    }
+
+    getCountriesByCode(borders).then((countries) => {
+      setBorderCountries(countries);
+      setIsLoadingBorders(false);
+    });
+  }, [country, isLoadingDetails]);
+
+  if (isLoadingDetails)
     return (
       <Stack spacing={5} sx={{ margin: "3rem" }} className="skltn">
         <Skeleton
@@ -37,26 +57,25 @@ const CountryDetailsContainer = () => {
       </Stack>
     );
 
-  const languages = country?.languages;
+  const languages = country?.languages ?? {};
   const language = Object.values(languages)?.join(", ");
 
-  const currencies = country?.currencies;
+  const currencies = country?.currencies ?? {};
   const currency = Object.values(currencies)
     .map(({ name }) => name)
     .join(", ");
 
-  const nativeNames = country?.name?.nativeName;
+  const nativeNames = country?.name?.nativeName ?? {};
   const nativeName = Object.values(nativeNames)?.[0]?.common;
-  const borderArr = country?.borders ?? [];
 
   return (
     <article className="detailedCountryContainer">
       <div className="flagDiv">
-        <img className="flagImg" src={country?.flags.svg} />
+        <img className="flagImg" src={country?.flags?.svg} />
       </div>
       <div className="countryDetails">
         <Typography variant="h4" color="text.primary" className="countryName">
-          {country?.name.common}
+          {country?.name?.common}
         </Typography>
         <div className="details">
           <div className="firstColumn">
@@ -82,7 +101,7 @@ const CountryDetailsContainer = () => {
                   Population:{" "}
                 </Typography>
                 <Typography component="span" sx={{ color: "text.primary" }}>
-                  {country?.population.toLocaleString("en")}
+                  {country?.population?.toLocaleString("en")}
                 </Typography>
               </li>
               <li>
@@ -175,18 +194,28 @@ const CountryDetailsContainer = () => {
             </Typography>
           </div>
           <div className="borderCountriesButton">
-            {borderArr.slice(0, 3).map((borderCountry) => (
-              <Button
-                sx={{ color: "text.primary" }}
-                color="grey"
-                variant="container"
-                className="borderBtn"
-                size="small"
-                key={borderCountry}
-              >
-                {borderCountry}
-              </Button>
-            ))}
+            {isLoadingBorders
+              ? Array.from({ length: 3 }).map((_, i) => (
+                  <Skeleton
+                    variant="rounded"
+                    width={87}
+                    height={30}
+                    pl={1.75}
+                    key={i}
+                  />
+                ))
+              : borderCountries.slice(0, 3).map((borderCountry) => (
+                  <Button
+                    sx={{ color: "text.primary", textTransform: "capitalize" }}
+                    color="grey"
+                    variant="container"
+                    className="borderBtn"
+                    size="small"
+                    key={borderCountry}
+                  >
+                    {borderCountry}
+                  </Button>
+                ))}
           </div>
         </div>
       </div>

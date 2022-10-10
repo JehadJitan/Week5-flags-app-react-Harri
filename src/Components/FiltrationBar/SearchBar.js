@@ -5,13 +5,13 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import "./SearchBar.css";
 
-const SearchBar = ({ onChangeSearchByName }) => {
-  const [searchCountry, setSearchCountry] = useState("");
+const SearchBar = ({ onChange, placeholder }) => {
+  const [search, setSearch] = useState("");
 
   function handleSearch(e) {
     const name = e.target.value;
-    setSearchCountry(name);
-    onChangeSearchByName(name);
+    setSearch(name);
+    onChange(name);
   }
 
   return (
@@ -26,17 +26,17 @@ const SearchBar = ({ onChangeSearchByName }) => {
         height: 55,
       }}
     >
-      <IconButton sx={{ p: "10px" }} aria-label="search">
+      <IconButton sx={{ p: "10px" }} aria-label="search" disableRipple>
         <SearchIcon />
       </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         type="text"
-        placeholder="Search for a country..."
-        inputProps={{ "nunito-sans": "Search for a country..." }}
+        placeholder={placeholder}
+        inputProps={{ "nunito-sans": placeholder }}
         onChange={handleSearch}
-        value={searchCountry}
-        onBlur={() => setSearchCountry((t) => t.trim())}
+        value={search}
+        onBlur={() => setSearch((t) => t.trim())}
       />
     </Paper>
   );

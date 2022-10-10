@@ -4,20 +4,12 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import "./SearchBar.css";
+import { REGIONS } from "./constants";
 
-const RegionDropDown = ({ region, setRegion }) => {
-  const handleChange = (event) => {
-    setRegion(event.target.value);
+const RegionDropDown = ({ selectedRegion, onChangeRegion }) => {
+  const handleChangeRegion = (event) => {
+    onChangeRegion(event.target.value);
   };
-
-  const regionNames = [
-    "Africa",
-    "Americas",
-    "Asia",
-    "Europe",
-    "Oceania",
-    "Clear Filter",
-  ];
 
   return (
     <FormControl sx={{ minWidth: 225, borderRadius: 1 }} id="headerDropdown">
@@ -35,20 +27,14 @@ const RegionDropDown = ({ region, setRegion }) => {
           ".MuiOutlinedInput-notchedOutline": { border: 0 },
         }}
         disableunderline="true"
-        value={region}
-        onChange={handleChange}
+        value={selectedRegion}
+        onChange={handleChangeRegion}
       >
-        {regionNames.map((r) =>
-          r !== "Clear Filter" ? (
-            <MenuItem key={r} value={r}>
-              {r}
-            </MenuItem>
-          ) : (
-            <MenuItem key={r} value={""}>
-              {r}
-            </MenuItem>
-          )
-        )}
+        {REGIONS.map(({ label, value }) => (
+          <MenuItem key={label} value={value}>
+            {label}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

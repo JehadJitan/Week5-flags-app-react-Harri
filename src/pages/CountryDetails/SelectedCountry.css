@@ -1,6 +1,5 @@
 .detailedCountryContainer {
   width: 95%;
-  height: calc(100vh - 450px);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,7 +9,7 @@
 
 .flagDiv {
   width: 45%;
-  height: 100%;
+  height: 512px;
   object-fit: "cover";
 }
 
@@ -62,12 +61,14 @@ li {
 }
 
 .borderCountriesButton {
+  gap: 8px;
   display: flex;
+  padding-left: 8px;
   flex-direction: row;
 }
 
 .borderBtn {
-  margin-left: 5% !important;
+  /* margin-left: 5% !important; */
   width: auto;
   height: 30px !important;
   box-shadow: 0px 2px 5px 0.5px rgba(100, 100, 111, 0.2) !important;
@@ -147,6 +148,7 @@ li {
   .borderCountriesButton {
     margin: 0rem !important;
     padding-top: 1rem !important;
+    padding-left: unset;
   }
 
   .borderBtn {

@@ -15,6 +15,17 @@ export const getAllCountries = async () => {
 };
 
 export const getCountryDetails = (name) =>
-  fetch(`https://restcountries.com/v3.1/name/${name}`).then((res) =>
+  fetch(`${mainURL}/name/${name}`).then((res) =>
     res.status === 200 ? res.json() : []
   );
+
+export const getCountriesByCode = async (codes) => {
+  const stringCodes = codes.map(encodeURIComponent).join(",");
+  try {
+    const res = await fetch(`${mainURL}/alpha?codes=${stringCodes}`);
+    const countries = await res.json();
+    return countries?.map((country) => country.name.common) ?? [];
+  } catch {
+    return [];
+  }
+};
