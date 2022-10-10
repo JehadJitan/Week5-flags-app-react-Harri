@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Week5-flags-app-react-Harri/static/css/main.f0349884.css",
-    "main.js": "/Week5-flags-app-react-Harri/static/js/main.047cc6aa.js",
+    "main.css": "/Week5-flags-app-react-Harri/static/css/main.bdda7c3c.css",
+    "main.js": "/Week5-flags-app-react-Harri/static/js/main.583e1605.js",
     "index.html": "/Week5-flags-app-react-Harri/index.html",
-    "main.f0349884.css.map": "/Week5-flags-app-react-Harri/static/css/main.f0349884.css.map",
-    "main.047cc6aa.js.map": "/Week5-flags-app-react-Harri/static/js/main.047cc6aa.js.map"
+    "main.bdda7c3c.css.map": "/Week5-flags-app-react-Harri/static/css/main.bdda7c3c.css.map",
+    "main.583e1605.js.map": "/Week5-flags-app-react-Harri/static/js/main.583e1605.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0349884.css",
-    "static/js/main.047cc6aa.js"
+    "static/css/main.bdda7c3c.css",
+    "static/js/main.583e1605.js"
   ]
 }
