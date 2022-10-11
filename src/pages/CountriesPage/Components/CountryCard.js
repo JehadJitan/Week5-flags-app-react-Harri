@@ -49,7 +49,7 @@ const CountryCard = ({ country, isFavourite, onToggleFavourite }) => {
             variant="h5"
             component="div"
             className="cardTitle"
-            sx={{ fontSize: "24px", fontWeight: 800 }}
+            sx={{ fontSize: "22px", fontWeight: 800 }}
           >
             {country.name.common}
           </Typography>

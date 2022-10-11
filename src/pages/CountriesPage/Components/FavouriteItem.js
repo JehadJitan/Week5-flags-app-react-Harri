@@ -13,7 +13,7 @@ const FavouriteItem = ({ country, onDelete }) => {
         <Typography
           variant="subtitle1"
           color="text.primary"
-          sx={{ fontWeight: 800 }}
+          sx={{ fontWeight: 700, fontSize: "16px" }}
         >
           {country?.name}
         </Typography>
